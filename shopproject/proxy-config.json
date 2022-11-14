@@ -1,0 +1,11 @@
+{
+    "/shop-api/*": {
+      "target": "https://localhost:3000/api",
+      "secure": false,
+      "pathRewrite": {
+        "^/shop-api": ""
+      },
+      "changeOrigin": true,
+      "logLevel": "debug"
+    },
+}
