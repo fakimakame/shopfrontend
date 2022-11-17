@@ -2,14 +2,14 @@ import { DefaultDataServiceConfig, EntityMetadataMap } from "@ngrx/data";
 import { StationModel} from './index'
 
 export const entityMetadata: EntityMetadataMap= {
-    station :{
+    Station :{
         selectId: (station:StationModel)=> station.stationId
     }
 
 }
 
 export const pluraNames={
-    station:'station'
+    Station:'Station'
 }
 
 export const entityConfig={
@@ -20,9 +20,9 @@ export const entityConfig={
 export const defaultDataServicesConfig:DefaultDataServiceConfig={
     root: '',
     entityHttpResourceUrls: {
-      station: {
-        entityResourceUrl: '/shop-api/station/',
-        collectionResourceUrl: '/shop-api/station/',
+      Station: {
+        entityResourceUrl: '/shop-api/station',
+        collectionResourceUrl: '/shop-api/station',
       },
     }
 }

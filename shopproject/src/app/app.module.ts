@@ -18,6 +18,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { StationComponent } from './components/station/station.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgrxDataStoreModule } from './core/ngrx-data-store.module';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,7 @@ import { NgrxDataStoreModule } from './core/ngrx-data-store.module';
     // EffectsModule.forRoot([]),
     // EntityDataModule.forRoot(entityMetadata),
     NgrxDataStoreModule,
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
   providers: [],
   bootstrap: [AppComponent]
