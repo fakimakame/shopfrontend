@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { StationComponent } from './components/station/station.component';
+import { StationComponent } from './module/station/components/station/station.component';
 
 const routes: Routes = [
   {
@@ -10,7 +10,17 @@ const routes: Routes = [
   },
   {
     path:'station',
-    component:StationComponent
+    loadChildren: ()=>
+    import('./module/station/station.module').then(
+      (m)=>m.StationModule
+    )
+  },
+  {
+    path:'user',
+    loadChildren:()=>
+    import ('./module/user/user.module').then(
+      (m) => m.UserModule
+    )
   }
 ];
 

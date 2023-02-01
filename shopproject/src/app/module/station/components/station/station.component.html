@@ -1,0 +1,24 @@
+<br>
+<ng-container *ngIf="isForm">
+<app-station-form></app-station-form>
+</ng-container>
+<ng-container *ngIf="isStation">
+<!-- <div class="d-flex justify-content-end">
+  <button mat-raised-button class="mat-primary mat-button" (click)="displayForm()">Add Station</button>
+  <br>
+</div> -->
+<br>
+<app-station-table></app-station-table>
+</ng-container>
+<!-- <ng-container ngProjectAs="table">
+    <app-material-table
+      *ngIf="tableConfigurations.tableColumns"
+      [loading]="loading"
+      [tableConfigurations]="tableConfigurations"
+      [tableList]="tabledata"
+      (rowUpdate)="edit($event)"
+      (rowDelete)="delete($event)"
+      (rowPreview)="view($event)"
+    >
+    </app-material-table>
+  </ng-container> -->

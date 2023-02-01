@@ -1,4 +1,4 @@
 export interface StationModel{
-    stationId:number;
+    id:number;
     stationName:string;
 }

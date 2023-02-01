@@ -6,7 +6,7 @@
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item href="#" [routerLink]="'station'">Station</a>
-      <a mat-list-item href="#">Link 2</a>
+      <a mat-list-item href="#" [routerLink]="'user'">User</a>
       <a mat-list-item href="#">Link 3</a>
     </mat-nav-list>
   </mat-sidenav>
@@ -22,6 +22,8 @@
       </button>
       <span>Inventory System</span>
     </mat-toolbar>
-    <router-outlet></router-outlet>
+    <div class="container" style="padding: 10px;">
+      <router-outlet></router-outlet>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

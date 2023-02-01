@@ -1,0 +1,20 @@
+<mat-card>
+    <mat-card-title>Station Form</mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="stationForm" (ngSubmit)="registerStation()">
+            <div class="row">
+                <div class="col-4">
+                    <mat-form-field class="w-100" appearance="outline">
+                        <mat-label>Station Name</mat-label>
+                        <input matInput formControlName="stationName">
+                    </mat-form-field>
+                </div>
+                <div class="col-3" style="margin-top: 15px;">
+                    
+                    <button mat-raised-button [disabled]="stationForm.invalid" class="mat-action mat-primary">Submit</button>
+                </div>
+            </div>
+            
+        </form>
+    </mat-card-content>
+</mat-card>
