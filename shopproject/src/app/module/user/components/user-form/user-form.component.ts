@@ -24,14 +24,13 @@ export class UserFormComponent implements OnInit {
 
   onSave(){
     const payload = {
-    id:0,
     fullName: this.userForm.value.fullName,
     username: this.userForm.value.userName,
     password: this.userForm.value.password,
     role: this.userForm.value.role,
     }
     this.userEntityService.add(payload).subscribe(res=>{
-      console.log('result ====>',res)
+      console.log('Adding result ====>',res)
     })
 
   }

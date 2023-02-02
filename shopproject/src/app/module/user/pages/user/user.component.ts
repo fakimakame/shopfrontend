@@ -20,7 +20,6 @@ export class UserComponent implements OnInit {
   ];
   constructor(
     private userEntityService:UserEntityService,
-    private toastService:ToastrService,
   ) {
     this.loading$=this.userEntityService.loading$;
     this.users$=this.userEntityService.entities$;
@@ -53,7 +52,7 @@ export class UserComponent implements OnInit {
     .then((result:any) => {
       if(result.isConfirmed){
         this.userEntityService.delete(id).subscribe(res=>{
-         // console.log('result ---->',res)
+          console.log('result ---->',res)
           if(res){
             this.userEntityService.clearCache();
             this.userEntityService.getAll();

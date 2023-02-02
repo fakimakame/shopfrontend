@@ -3,22 +3,45 @@
 <app-station-form></app-station-form>
 </ng-container>
 <ng-container *ngIf="isStation">
-<!-- <div class="d-flex justify-content-end">
-  <button mat-raised-button class="mat-primary mat-button" (click)="displayForm()">Add Station</button>
-  <br>
-</div> -->
 <br>
-<app-station-table></app-station-table>
+<<app-data-table 
+[columnHeader]="TableColumns"
+[hasActionsColumn]="true"
+[tableData]="stationData$"
+[hasSearch]="true"
+[serverPagination]="false"
+[hasHighlighted]="true"
+[hasCustomStyle]="false"
+[allowPagination]="true"
+[loading]="stationLoading$"
+>
+<ng-template #actions let-data="data">
+    <div class="action-icons">
+      <a><button mat-raised-button color="primary" class="example-button-row" [matMenuTriggerFor]="actions"
+          style="border-radius: 50px;min-width: auto;;outline: none;">
+          Actions
+        </button>
+        <mat-menu #actions="matMenu">
+          <mat-nav-list>
+            <!-- <a mat-list-item routerLinkActive="list-item-actve">
+              <i class="fa fa-eye"></i>
+              &nbsp;
+              <span>View Details</span>
+            </a> -->
+            <a mat-list-item routerLinkActive="list-item-actve">
+              <i class="fa fa-edit"></i>
+              &nbsp;
+              <span>Edit Data</span>
+            </a>
+            <a mat-list-item routerLinkActive="list-item-actve">
+              <i class="fa fa-trash"></i>
+              &nbsp;
+              <span>Delete</span>
+            </a>
+          </mat-nav-list>
+        </mat-menu>
+      </a>
+    </div>
+  </ng-template>
+</app-data-table>
 </ng-container>
-<!-- <ng-container ngProjectAs="table">
-    <app-material-table
-      *ngIf="tableConfigurations.tableColumns"
-      [loading]="loading"
-      [tableConfigurations]="tableConfigurations"
-      [tableList]="tabledata"
-      (rowUpdate)="edit($event)"
-      (rowDelete)="delete($event)"
-      (rowPreview)="view($event)"
-    >
-    </app-material-table>
-  </ng-container> -->

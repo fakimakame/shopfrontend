@@ -3,10 +3,18 @@ import { StationModel, User} from './index'
 
 export const entityMetadata: EntityMetadataMap= {
     Station :{
-        selectId: (station:StationModel)=> station.id
+        selectId: (station:StationModel)=> station.id,
+        additionalCollectionState: {
+          pageInfo: {},
+          message: null,
+        },
     },
     User :{
-      selectId: (user:User)=> user.id
+      selectId: (user:User)=> user.id,
+      additionalCollectionState: {
+        pageInfo: {},
+        message: null,
+      },
   }
 
 }

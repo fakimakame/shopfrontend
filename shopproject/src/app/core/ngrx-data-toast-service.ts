@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { EntityAction, ofEntityOp, OP_ERROR, OP_SUCCESS } from "@ngrx/data";
+import { EntityAction, EntityOp, ofEntityOp, OP_ERROR, OP_SUCCESS } from "@ngrx/data";
 import { Actions } from "@ngrx/effects";
 import { Action } from "@ngrx/store";
 import { ToastrService } from "ngx-toastr";
@@ -25,6 +25,7 @@ export class NgrxDataToastService{
             }
             else{
                 console.log('this is action',action)
+                this.handleSuccess(action)
             }
         })
 
@@ -47,8 +48,22 @@ export class NgrxDataToastService{
             errorMsg=msg ? msg :'Error on our side'
         }
         this.toastService.error(errorMsg)
-        //sweetalert.fire('success connected','error')
+    }
+
+    handleSuccess(action:EntityAction){
+        if( 
+            action.payload.entityOp.includes(EntityOp.SAVE_ADD_MANY_SUCCESS) || 
+            action.payload.entityOp.includes(EntityOp.SAVE_ADD_ONE_SUCCESS) ||
+            action.payload.entityOp.includes(EntityOp.SAVE_DELETE_MANY_SUCCESS) ||
+            action.payload.entityOp.includes(EntityOp.SAVE_DELETE_ONE_SUCCESS) ||
+            action.payload.entityOp.includes(EntityOp.SAVE_UPDATE_MANY_SUCCESS) ||
+            action.payload.entityOp.includes(EntityOp.SAVE_UPDATE_ONE_SUCCESS) ||
+            action.payload.entityOp.includes(EntityOp.SAVE_UPSERT_MANY_SUCCESS) ||
+            action.payload.entityOp.includes(EntityOp.SAVE_UPSERT_ONE_SUCCESS)
+        ){
+            this.toastService.success(action.payload?.data?.message);
+        }
         
-        
+
     }
 }

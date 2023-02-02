@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { StationEntityService } from 'src/app/services/station/station-entity.service';
 
 @Component({
@@ -10,34 +11,22 @@ export class StationComponent implements OnInit {
   isForm=true;
   isStation=true;
   loading=true;
-  tableConfigurations = {
-    tableList: [],
-    tableColumns: [
-      {name: 'taxpayerId', label: 'TIN Number', type: 'text'},
-      {name: 'branchName', label: 'Branch Name', type: 'text'},
-      {name: 'postalCity', label: 'Postal City', type: 'text'},
-      {name: 'street', label: 'Street', type: 'text'},
-      {name: 'status', label: 'Status', type: 'text'},
-      
-    ],
-    showSearch: true,
-    showBorder: true,
-    allowPagination: true,
-    useFullObject: true,
-    actionIcons: {edit: false, delete: false, more: false},
-    doneLoading: true,
-    deleting: {},
-    active: {},
-    hideExport: true,
-    empty_msg: 'No Companies Found',
-  }
-  actionButtonsStyle = 'button'
-  hasDynamicActionButton = true
+  stationData$:Observable<any[]>=of([])
+  stationLoading$:Observable<boolean>=of(false)
+  TableColumns = [
+    {name: 'sn', label: 'S/No', type: 'text' },
+    {name: 'stationName', label: 'Station Name', type: 'text' },
+    {name: 'action', label: 'Action', type: 'text'},
+  ];
   constructor(
     private stationEntityService:StationEntityService
-  ) { }
+  ) {
+    this.stationLoading$=this.stationEntityService.loading$;
+    this.stationData$=this.stationEntityService.entities$;
+   }
 
   ngOnInit(): void {
+    this.stationEntityService.getAll();
   }
   edit($event:any){
 
