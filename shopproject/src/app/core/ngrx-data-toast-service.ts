@@ -61,8 +61,16 @@ export class NgrxDataToastService{
             action.payload.entityOp.includes(EntityOp.SAVE_UPSERT_MANY_SUCCESS) ||
             action.payload.entityOp.includes(EntityOp.SAVE_UPSERT_ONE_SUCCESS)
         ){
+            if(action.payload.entityOp.includes(EntityOp.SAVE_UPDATE_MANY_SUCCESS) ||
+                action.payload.entityOp.includes(EntityOp.SAVE_UPDATE_ONE_SUCCESS)
+            ){
+                this.toastService.success(action.payload?.data?.changes?.message);
+            }
+            else{
             this.toastService.success(action.payload?.data?.message);
+            }
         }
+        
         
 
     }

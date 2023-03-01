@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { StationEntityService } from 'src/app/services/station/station-entity.service';
-
+import sweetalert from 'sweetalert2'
 @Component({
   selector: 'app-station',
   templateUrl: './station.component.html',
@@ -31,9 +31,32 @@ export class StationComponent implements OnInit {
   edit($event:any){
 
   }
-  delete($event:any){
-
+  deleteStation(data:any){
+    let id= data.id;
+    sweetalert
+    .fire({
+      html: `Are you sure you want to Delete</b>`,
+      title: 'Delete Station',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, Cancel',
+      allowOutsideClick: false,
+      showClass: {
+        popup: '',
+        icon: 'warning',
+      },
+      hideClass: {
+        popup: '',
+      },
+    })
+    .then((result:any) => {
+      if(result.isConfirmed){
+        this.stationEntityService.delete(id)
   }
+})
+}
   view($event:any){
 
   }

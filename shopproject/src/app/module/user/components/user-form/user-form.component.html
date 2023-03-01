@@ -6,19 +6,19 @@
     <mat-card-content>
         <form [formGroup]="userForm">
             <div class="row">
-                <div class="col-3">
+                <div class="col-4">
                     <mat-form-field class="w-100" appearance="outline">
                         <mat-label>Full Name</mat-label>
                         <input matInput formControlName="fullName">
                     </mat-form-field>
                 </div>
-                <div class="col-3">
+                <div class="col-4">
                     <mat-form-field class="w-100" appearance="outline">
                         <mat-label>User Name</mat-label>
                         <input matInput formControlName="userName">
                     </mat-form-field>
                 </div>
-                <div class="col-2">
+                <div class="col-4">
                     <mat-form-field class="w-100" appearance="outline">
                         <mat-label>Role</mat-label>
                         <mat-select formControlName="role">
@@ -27,20 +27,44 @@
                         </mat-select>
                     </mat-form-field>
                 </div>
-                <div class="col-2">
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <mat-form-field class="w-100" appearance="outline">
+                        <mat-label>Station</mat-label>
+                        <mat-select formControlName="stationId">
+                            <mat-option *ngFor="let station of station$ | async" [value]="station.id">{{ station.stationName }}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-4">
                     <mat-form-field class="w-100" appearance="outline">
                         <mat-label>Password</mat-label>
                         <input matInput formControlName="password">
                     </mat-form-field>
                 </div>
-                <div class="col-2">
+                <div class="col-4">
                     <mat-form-field class="w-100" appearance="outline">
                         <mat-label>Confirm Password</mat-label>
                         <input matInput formControlName="confirmPassword">
                     </mat-form-field>
                 </div>
                 <div class="d-flex justify-content-end">
-                    <button mat-raised-button (click)="onSave()" class="mat-primary">Save</button>&nbsp;&nbsp;
+                    <ng-container *ngIf="isEdited ;else showSave">
+                        <button mat-raised-button 
+                        (click)="onUpdate()" 
+                        class="mat-primary"
+                        [disabled]="userForm.invalid"
+                        >Update</button>
+                    </ng-container>
+                    <ng-template #showSave>
+                    <button mat-raised-button 
+                    (click)="onSave()" 
+                    class="mat-primary"
+                    [disabled]="userForm.invalid"
+                    >Save</button>
+                    </ng-template>
+                    &nbsp;&nbsp;
                     <button mat-raised-button (click)="onClear()" class="mat-accent">Clear</button>&nbsp;&nbsp;
                 </div>
             </div>

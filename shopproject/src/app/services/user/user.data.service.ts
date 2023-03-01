@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { DefaultDataService, HttpMethods, HttpUrlGenerator } from '@ngrx/data';
+import { Update } from '@ngrx/entity';
 import { map, Observable } from 'rxjs';
 import { CustomDefaultDataService } from 'src/app/core/ngrx-custom-default-data.service';
 import { User } from '../../core/index';
@@ -22,7 +23,6 @@ export class UserDataService extends CustomDefaultDataService<User> {
       return super.execute('POST',this.url,entity)
       .pipe(
        map((res:any)=>{
-        console.log("result inside add service====>",res)
          return res
        })
       )
@@ -30,12 +30,16 @@ export class UserDataService extends CustomDefaultDataService<User> {
 
     override delete(key: string | number): Observable<any> {
       return super.execute('DELETE',`${this.url}/${key}`)
-      .pipe(
-       map(res=>{
-        console.log('Result inside the service',res)
-         return res
-       })
-      )
+    }
+
+    override update(update: Update<User>): Observable<User> {
+        return super.execute('PUT',`${this.url}${update?.changes?.id}`,update?.changes)
+        .pipe(
+          map(res=>{
+            console.log('updated result',res)
+            return res
+          })
+        )
     }
     
      

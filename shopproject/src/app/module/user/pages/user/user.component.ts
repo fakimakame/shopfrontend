@@ -11,11 +11,14 @@ import  sweetalert from 'sweetalert2'
 export class UserComponent implements OnInit {
   loading$:Observable<boolean>=of(false)
   users$:Observable<any[]>=of([])
+  editedData:any
+  isEdited=false;
   TableColumns = [
     {name: 'sn', label: 'S/No', type: 'text' },
     {name: 'fullName', label: 'Full Name', type: 'text' },
     {name: 'username', label: 'UserName ', type: 'text' },
     {name: 'role', label: 'Role', type: 'text'},
+    {name: 'stationName', label: 'Station', type: 'text'},
     {name: 'action', label: 'Action', type: 'text'},
   ];
   constructor(
@@ -51,15 +54,19 @@ export class UserComponent implements OnInit {
     })
     .then((result:any) => {
       if(result.isConfirmed){
-        this.userEntityService.delete(id).subscribe(res=>{
-          console.log('result ---->',res)
-          if(res){
-            this.userEntityService.clearCache();
-            this.userEntityService.getAll();
-          }
-        })
+         this.userEntityService.delete(id)
+         //.subscribe(res=>{
+        //   if(res){
+        //     // this.userEntityService.clearCache();
+        //     // this.userEntityService.getAll();
+        //   }
+        // })
   }
 })
+}
+
+onEdit(data:any){
+  this.editedData=data;
 }
 
 }

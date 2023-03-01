@@ -23,11 +23,11 @@ stationForm!:FormGroup;
 
   registerStation(){
     const payload={
-      id:0,
       stationName:this.stationForm.get('stationName')?.value
     }
+    
     this.stationEntityService.add(payload).subscribe(res=>{
-      console.log('this is my result',res)
+      this.stationForm.reset()
     })
   }
 

@@ -1,0 +1,50 @@
+<mat-card class="mb-1">
+    <mat-card-title>Add Product</mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="productForm">
+            <div class="row">
+                <div class="col-md-3 col-sm-12">
+                    <mat-form-field class="w-100" appearance="outline">
+                        <mat-label>Product Name</mat-label>
+                        <input matInput formControlName="productName">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-3 col-sm-12">
+                    <mat-form-field class="w-100" appearance="outline">
+                        <mat-label>Product Code</mat-label>
+                        <input matInput formControlName="productCode">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-3 col-sm-12">
+                    <mat-form-field class="w-100" appearance="outline">
+                        <mat-label>Product Price</mat-label>
+                        <input matInput formControlName="productPrice">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-3 col-sm-12" style="margin-top: 15px;">
+                    <ng-container *ngIf="data === null; else showEdit">
+                        <button mat-raised-button 
+                            class="mat-action mat-primary"
+                            [disabled]="this.productForm.invalid"
+                            (click)="onSave()"
+                            >&nbsp;Save&nbsp;
+                        </button>
+                    </ng-container>
+                    <ng-template #showEdit>
+                        <button mat-raised-button 
+                        class="mat-action mat-primary"
+                        [disabled]="this.productForm.invalid"
+                        (click)="onEdit()"
+                        >&nbsp;Edit&nbsp;</button>
+                    </ng-template>
+                    
+                    &nbsp;
+                    <button mat-raised-button 
+                    class="mat-action mat-accent"
+                    (click)="onClear()"
+                    >&nbsp;Clear&nbsp;</button>
+                </div>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

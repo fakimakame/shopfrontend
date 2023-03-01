@@ -9,7 +9,10 @@ import { environment } from 'src/environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { UserDataService } from '../services/user/user.data.service';
 import { NgrxDataToastService } from './ngrx-data-toast-service';
-import { ToastrService } from 'ngx-toastr';
+import { ProductDataService } from '../services/product/product-data.service';
+import { AuthDataService } from '../services/auth/auth-data.service';
+import { StoreDataService } from '../services/store/store-data.service';
+import { PurchaseDataService } from '../services/purchase/purchase-data.service';
 
 
 
@@ -30,9 +33,12 @@ import { ToastrService } from 'ngx-toastr';
   ],
   exports:[EffectsModule,EntityDataModule],
   providers:[
-    
     StationDataService,
     UserDataService,
+    ProductDataService,
+    AuthDataService,
+    StoreDataService,
+    PurchaseDataService,
     {provide: DefaultDataServiceConfig, useValue: defaultDataServicesConfig}
   ]
 })
@@ -43,11 +49,19 @@ export class NgrxDataStoreModule {
     ngrxDataToastService:NgrxDataToastService,
     private stationDataService:StationDataService,
     private userDataService:UserDataService,
+    private productDataService:ProductDataService,
+    private authDataService:AuthDataService,
+    private storeDataService:StoreDataService,
+    private purchaseDataService:PurchaseDataService,
   ){
     entityDefinitionService.registerMetadataMap(entityMetadata)
     eds.registerServices({
       Station:stationDataService,
       User:userDataService,
+      Product:productDataService,
+      Auth:authDataService,
+      Store:storeDataService,
+      Purchase:purchaseDataService,
     })
   }
  }

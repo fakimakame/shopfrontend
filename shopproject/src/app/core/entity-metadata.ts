@@ -1,5 +1,5 @@
 import { DefaultDataServiceConfig, EntityMetadataMap } from "@ngrx/data";
-import { StationModel, User} from './index'
+import { Product, Purchase, StationModel, Store, User} from './index'
 
 export const entityMetadata: EntityMetadataMap= {
     Station :{
@@ -15,13 +15,44 @@ export const entityMetadata: EntityMetadataMap= {
         pageInfo: {},
         message: null,
       },
-  }
-
+  },
+  Product :{
+    selectId: (product:Product)=> product.id,
+    additionalCollectionState: {
+      pageInfo: {},
+      message: null,
+    },
+  },
+    Auth : {
+      selectId: (auth : User) => auth.id,
+      additionalCollectionState: {
+        pageInfo: {},
+        message: null,
+      },
+    },
+    Store : {
+      selectId: (store : Store) => store.id,
+      additionalCollectionState: {
+        pageInfo: {},
+        message: null,
+      },
+    },
+    Purchase : {
+      selectId: (purchase : Purchase) => purchase.id,
+      additionalCollectionState: {
+        pageInfo: {},
+        message: null,
+      },
+    },
 }
 
 export const pluraNames={
     Station:'Station',
     User:'User',
+    Auth: 'Auth',
+    Store: 'Store',
+    Product: 'Product',
+    Purchase: 'Purchase',
 }
 
 export const entityConfig={
@@ -39,6 +70,22 @@ export const defaultDataServicesConfig:DefaultDataServiceConfig={
       User: {
         entityResourceUrl: '/shop-api/users/',
         collectionResourceUrl: '/shop-api/users/',
+      },
+      Product: {
+        entityResourceUrl: '/shop-api/products/',
+        collectionResourceUrl: '/shop-api/products/',
+      },
+      Auth: {
+        entityResourceUrl: '/shop-api/auth/',
+        collectionResourceUrl: '/shop-api/auth/',
+      },
+      Store: {
+        entityResourceUrl: '/shop-api/store/',
+        collectionResourceUrl: '/shop-api/store/',
+      },
+      Purchase: {
+        entityResourceUrl: '/shop-api/purchase/',
+        collectionResourceUrl: '/shop-api/purchase/',
       },
     },
 }

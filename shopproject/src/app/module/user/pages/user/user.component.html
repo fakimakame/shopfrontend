@@ -1,4 +1,4 @@
-<app-user-form></app-user-form>
+<app-user-form [editedData]="editedData"></app-user-form>
 <app-data-table 
 [columnHeader]="TableColumns"
 [hasActionsColumn]="true"
@@ -23,7 +23,9 @@
               &nbsp;
               <span>View Details</span>
             </a> -->
-            <a mat-list-item routerLinkActive="list-item-actve">
+            <a mat-list-item routerLinkActive="list-item-actve"
+            (click)="onEdit(data)">
+              
               <i class="fa fa-edit"></i>
               &nbsp;
               <span>Edit Data</span>

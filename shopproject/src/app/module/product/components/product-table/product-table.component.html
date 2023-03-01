@@ -1,0 +1,47 @@
+<mat-card>
+    <mat-card-title>Product</mat-card-title>
+    <mat-card-content>
+        <app-data-table 
+[columnHeader]="TableColumns"
+[hasActionsColumn]="true"
+[tableData]="product$"
+[hasSearch]="true"
+[serverPagination]="false"
+[hasHighlighted]="true"
+[hasCustomStyle]="false"
+[allowPagination]="true"
+[loading]="loading$"
+>
+<ng-template #actions let-data="data">
+    <div class="action-icons">
+      <a><button mat-raised-button color="primary" class="example-button-row" [matMenuTriggerFor]="actions"
+          style="border-radius: 50px;min-width: auto;;outline: none;">
+          Actions
+        </button>
+        <mat-menu #actions="matMenu">
+          <mat-nav-list>
+            <!-- <a mat-list-item routerLinkActive="list-item-actve">
+              <i class="fa fa-eye"></i>
+              &nbsp;
+              <span>View Details</span>
+            </a> -->
+            <a mat-list-item routerLinkActive="list-item-actve"
+            (click)="onEdit(data)">
+              <i class="fa fa-edit"></i>
+              &nbsp;
+              <span>Edit Data</span>
+            </a>
+            <a mat-list-item routerLinkActive="list-item-actve"
+            (click)="onDelete(data)">
+              <i class="fa fa-trash"></i>
+              &nbsp;
+              <span>Delete</span>
+            </a>
+          </mat-nav-list>
+        </mat-menu>
+      </a>
+    </div>
+  </ng-template>
+</app-data-table>
+    </mat-card-content>
+</mat-card>

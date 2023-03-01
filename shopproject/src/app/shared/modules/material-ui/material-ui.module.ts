@@ -17,11 +17,17 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MAT_DIALOG_DATA, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { DataTableComponent } from '../../components/data-table/data-table.component';
 import { ToastrService } from 'ngx-toastr';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthorizationInterceptor } from '../../authorization.interceptor';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { ReactiveFormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
 const materialModules=[
   MatIconModule,
   MatProgressBarModule,
@@ -44,8 +50,12 @@ const materialModules=[
   MatDialogModule,
   MatFormFieldModule,
   MatInputModule,
-  MatSelectModule
-]
+  MatSelectModule,
+  MatNativeDateModule,
+  MatDatepickerModule,
+  ReactiveFormsModule,
+  //MatDialogModule,
+] 
 
 @NgModule({
   declarations: [
@@ -59,6 +69,14 @@ const materialModules=[
   exports :[ 
     ...materialModules,
     DataTableComponent,
+  ],
+  providers :[
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass: AuthorizationInterceptor,
+      multi:true
+    },
+    // {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {data:{}}}
   ]
 })
 export class MaterialUiModule { }

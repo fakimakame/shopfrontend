@@ -4,7 +4,7 @@
 </ng-container>
 <ng-container *ngIf="isStation">
 <br>
-<<app-data-table 
+<app-data-table 
 [columnHeader]="TableColumns"
 [hasActionsColumn]="true"
 [tableData]="stationData$"
@@ -33,7 +33,9 @@
               &nbsp;
               <span>Edit Data</span>
             </a>
-            <a mat-list-item routerLinkActive="list-item-actve">
+            <a mat-list-item routerLinkActive="list-item-actve"
+            (click)="deleteStation(data)"
+            >
               <i class="fa fa-trash"></i>
               &nbsp;
               <span>Delete</span>

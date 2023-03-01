@@ -1,27 +1,26 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { StationComponent } from './module/station/components/station/station.component';
 
 const routes: Routes = [
+  // {
+  //   path:'',
+  //   component:DashboardComponent,
+  //   data:{isLogin:true}
+  // },
   {
     path:'',
-    component:DashboardComponent
-  },
-  {
-    path:'station',
-    loadChildren: ()=>
-    import('./module/station/station.module').then(
-      (m)=>m.StationModule
+    loadChildren: () =>
+    import('./module/login/login.module').then(
+      (m) => m.LoginModule
     )
   },
   {
-    path:'user',
-    loadChildren:()=>
-    import ('./module/user/user.module').then(
-      (m) => m.UserModule
+    path:'system',
+    loadChildren: () =>
+    import('./navigation-bar/navigation-routing.module').then(
+      (m) => m.NavigationRoutingModule
     )
-  }
+  },
 ];
 
 @NgModule({

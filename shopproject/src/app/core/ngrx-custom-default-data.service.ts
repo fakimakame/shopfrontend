@@ -36,7 +36,7 @@ import { catchError, delay, map, Observable, throwError } from "rxjs";
                 break;
             }
             case 'PUT':{
-                result$=this.http.post(url,data,options);
+                result$=this.http.put(url,data,options);
                 if(this.saveDelay){
                     result$=result$.pipe(delay(this.saveDelay));
                 }
@@ -50,8 +50,8 @@ import { catchError, delay, map, Observable, throwError } from "rxjs";
                 break;
             }
             default:{
-                const error = new Error('Unimplemented HTTP method, ' + method)
-                result$ = throwError(error)
+                const error = 'Unimplemented HTTP method, ' + method;
+                result$ = throwError(() => new Error(error))
             }
         }
         return result$.pipe(
