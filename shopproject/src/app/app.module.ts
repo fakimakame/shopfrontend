@@ -38,7 +38,7 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     
   ],
-  providers: [ToastrService,ToastrService],
+  providers: [ToastrService,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -14,7 +14,14 @@ export class AuthorizationInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const data:any=sessionStorage.getItem('token')
-    console.log('this is my data inside interceptor',request.headers.get('Authorization'))
-    return next.handle(request.clone({setHeaders :{'Authorization': `Bearer ${data}`}}));
+    const newRequest=request.clone({
+      headers:request.headers
+      .set('Authorization',`Bearer ${data}`)
+      //.append('Details-Info','This is my detal Info')
+    })
+    return next.handle(newRequest)
+    // return next.handle(request.clone({
+    //   setHeaders :{'Authorization': `Bearer ${data}`}
+    // }));
   }
 }

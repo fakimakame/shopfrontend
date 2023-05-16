@@ -44,8 +44,8 @@ import { catchError, delay, map, Observable, throwError } from "rxjs";
             }
             case 'GET':{
                 result$=this.http.get(url,options);
-                if(this.saveDelay){
-                    result$=result$.pipe(delay(this.saveDelay));
+                if(this.getDelay){
+                    result$=result$.pipe(delay(this.getDelay));
                 }
                 break;
             }

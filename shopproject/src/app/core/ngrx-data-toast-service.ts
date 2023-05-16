@@ -1,16 +1,15 @@
 import { Injectable } from "@angular/core";
 import { EntityAction, EntityOp, ofEntityOp, OP_ERROR, OP_SUCCESS } from "@ngrx/data";
 import { Actions } from "@ngrx/effects";
-import { Action } from "@ngrx/store";
 import { ToastrService } from "ngx-toastr";
 import { filter, tap } from "rxjs/operators";
-import  sweetalert from 'sweetalert2'
 
 @Injectable({providedIn:'any'})
 export class NgrxDataToastService{
     constructor(private $action:Actions,
         private toastService:ToastrService,)
     {
+        console.log('this action is work')
         $action.pipe(
             filter(
               (ea: any) =>
@@ -24,7 +23,6 @@ export class NgrxDataToastService{
                 this.handleError(error);
             }
             else{
-                console.log('this is action',action)
                 this.handleSuccess(action)
             }
         })
