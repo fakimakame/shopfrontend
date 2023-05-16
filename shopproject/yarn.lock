@@ -1410,24 +1410,24 @@
   resolved "https://registry.npmjs.org/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
-"@ngrx/data@^14.3.2":
-  version "14.3.3"
-  resolved "https://registry.yarnpkg.com/@ngrx/data/-/data-14.3.3.tgz#62d44f2d320356a6b6b87b35c1a32c6bdfe71bda"
-  integrity sha512-FBvrBVG/9vjbpwG/09WU+6lqz+mmVujk5smQRpuH7SmKXLgE/j90K0iewl3apqHX3MyUZYHIohS5IXYVhVFawQ==
+"@ngrx/data@16.0.0":
+  version "16.0.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/data/-/data-16.0.0.tgz#e23b15c21248ad2714ef3b4fb133d0b12cec7bcc"
+  integrity sha512-yBo0D79LLGJn6WRM9529fWQ9iUaOXli/Uf/Ivjo0ovxyHJ9tdp7ImkhAAY+FfDfen+Z+T8i8CdobzoQTySgi1g==
   dependencies:
     tslib "^2.0.0"
 
-"@ngrx/effects@^14.3.2":
-  version "14.3.3"
-  resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-14.3.3.tgz#5c9e43e4dc5e1d544f4604fc6a32feec2380c413"
-  integrity sha512-bP7rIHlu1KAj5Wm0TWR7Q8VlOQOBu8uiN/fDP3Lqi8FwVW6HOq9eBGcFwJGyqwVAmulsvLFB68MhpMYg2W78+w==
+"@ngrx/effects@16.0.0":
+  version "16.0.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-16.0.0.tgz#932c1fa2d2e98be78ab14d9fb9d308277aaf98f9"
+  integrity sha512-l3H/yCwVl8DPmUasOEDthdv9lZMhCSJwBxfSXjUW7gKJVEamP3PSuvExp0ZpW9RULPblgcfTM1TH8VcPAHelQw==
   dependencies:
     tslib "^2.0.0"
 
-"@ngrx/entity@^14.3.2":
-  version "14.3.3"
-  resolved "https://registry.yarnpkg.com/@ngrx/entity/-/entity-14.3.3.tgz#bb42d7690550a7467239ca768f524c56fa23fbe8"
-  integrity sha512-UWSJg2WknLxstT/c9axVY8N3XGSgmY3fPcngPZvsyVjCo7pS/LMeh2/+F6pmQeWfTr/CdHsY1iLBJkjhAjHpYg==
+"@ngrx/entity@16.0.0":
+  version "16.0.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/entity/-/entity-16.0.0.tgz#2ffb8f4fe2400b6033851dc112fa0f4097232ed1"
+  integrity sha512-9y5gAtIL/MiiNtZMjzIy5lncvqnX1B3auobNPGPqTwaXMo7y0VQAsp9qCmR0/Z1L32AsAnawKJLYf9wv/q4NBQ==
   dependencies:
     tslib "^2.0.0"
 
@@ -1438,10 +1438,10 @@
   dependencies:
     tslib "^2.0.0"
 
-"@ngrx/store@^14.3.2":
-  version "14.3.3"
-  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-14.3.3.tgz#397d7fe54fb6c580282240c149f76f6f48ebf2a3"
-  integrity sha512-VhPDR2a5OQJfrVRah3vdJgL/F6UC8NU/X7lxKFqBW3NC+pmlIeFO/y8jLrZOKBXwG45tY9wrg15S70nEGoZtHA==
+"@ngrx/store@16.0.0":
+  version "16.0.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-16.0.0.tgz#c2d0e90eb7c16ab4f112029a8f958d29110d2b56"
+  integrity sha512-bmr0KLITh9u1DJO51USTc4OAKX+su06efhTdNiQV/wagifpbC4kA8zr2hdstKMNG3Z5EKTX3XLFanIiREkd6JQ==
   dependencies:
     tslib "^2.0.0"
 
