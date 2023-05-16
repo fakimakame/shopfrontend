@@ -2,7 +2,7 @@
 <div class="table-filter" *ngIf="hasSearch">
 
     <div class="text-right">
-      <mat-form-field class="search-form-field" floatLabel="never">
+      <mat-form-field class="search-form-field">
         <input (keyup)="filterTable()" [(ngModel)]="searchKey" autocomplete="off" matInput placeholder="Search" />
         <button (click)="onSearchClear()" *ngIf="searchKey" arial-label="Clear" mat-button mat-icon-button matSuffix>
           <mat-icon>close</mat-icon>
